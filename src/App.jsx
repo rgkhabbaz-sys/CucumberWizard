@@ -173,17 +173,11 @@ export default function App() {
       <ErrorBoundary>
         <Canvas shadows camera={{ position: [0, 5, 10], fov: 60 }} style={{ width: '100vw', height: '100vh' }}>
           <Suspense fallback={null}>
-            {/* <Sky sunPosition={[100, 20, 100]} /> */}
-            {/* <Environment preset="sunset" /> */}
+            <Sky sunPosition={[100, 20, 100]} />
+            <Environment preset="sunset" />
             <color attach="background" args={['#87CEEB']} />
             <ambientLight intensity={0.8} />
             <directionalLight position={[10, 10, 5]} intensity={1} />
-
-            {/* Debug Mesh to prove rendering works */}
-            <mesh position={[0, 2, -5]}>
-              <boxGeometry />
-              <meshStandardMaterial color="red" />
-            </mesh>
 
             <Suspense fallback={<Html center><div className="text-white text-2xl">Loading Physics Engine...</div></Html>}>
               <Physics gravity={[0, -15, 0]}>
@@ -192,11 +186,11 @@ export default function App() {
             </Suspense>
             {/* <OrbitControls /> */}
 
-            {/* <EffectComposer>
+            <EffectComposer>
               <Bloom luminanceThreshold={1} intensity={1.5} />
               <Vignette eskil={false} offset={0.1} darkness={1.1} />
               <Noise opacity={0.05} />
-            </EffectComposer> */}
+            </EffectComposer>
           </Suspense>
         </Canvas>
       </ErrorBoundary>
