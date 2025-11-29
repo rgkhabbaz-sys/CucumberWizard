@@ -181,17 +181,21 @@ export default function App() {
             <directionalLight position={[10, 10, 5]} intensity={1} />
 
             <Suspense fallback={<Html center><div className="text-white text-2xl">Loading Physics Engine...</div></Html>}>
-              <Physics gravity={[0, -15, 0]}>
+              <Physics gravity={[0, -15, 0]} debug>
                 <GameScene />
+                <mesh position={[0, 2, 0]}>
+                  <boxGeometry args={[1, 1, 1]} />
+                  <meshStandardMaterial color="red" />
+                </mesh>
               </Physics>
             </Suspense>
             {/* <OrbitControls /> */}
 
-            <EffectComposer>
+            {/* <EffectComposer>
               <Bloom luminanceThreshold={1} intensity={1.5} />
               <Vignette eskil={false} offset={0.1} darkness={1.1} />
               <Noise opacity={0.05} />
-            </EffectComposer>
+            </EffectComposer> */}
           </Suspense>
         </Canvas>
       </ErrorBoundary>
