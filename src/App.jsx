@@ -181,11 +181,12 @@ export default function App() {
             <directionalLight position={[10, 10, 5]} intensity={1} />
 
             <Suspense fallback={<Html center><div className="text-white text-2xl">Loading Physics Engine...</div></Html>}>
-              <Physics gravity={[0, -15, 0]} debug>
+              {/* <Physics gravity={[0, -15, 0]} debug>
                 <GameScene />
-              </Physics>
-              {/* Debug Mesh OUTSIDE Physics */}
-              <mesh position={[0, 2, 0]}>
+              </Physics> */}
+
+              {/* Debug Mesh ONLY - No Physics */}
+              <mesh position={[0, 0, -5]}>
                 <boxGeometry args={[1, 1, 1]} />
                 <meshBasicMaterial color="red" />
               </mesh>
