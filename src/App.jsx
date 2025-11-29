@@ -12,6 +12,7 @@ import { Leva } from 'leva'
 import { ErrorBoundary } from './components/ErrorBoundary'
 
 import { UpgradeUI } from './components/UpgradeUI'
+import { VictoryScreen } from './components/VictoryScreen'
 
 function StartScreen() {
   const startGame = useStore((state) => state.startGame)

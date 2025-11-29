@@ -18,7 +18,7 @@ import { HealthBar } from '../components/HealthBar'
 export function Enemy({ id, type = 'einstein', position = [0, 0, 0], playerRef, isBoss = false, scale = 1, hp, maxHp }) {
     const body = useRef()
     const config = ENEMY_TYPES[type]
-    const decreaseHealth = useStore((state) => state.decreaseHealth)
+    const takeDamage = useStore((state) => state.takeDamage)
     const lastAttackTime = useRef(0)
 
     useFrame((state, delta) => {
@@ -79,7 +79,7 @@ export function Enemy({ id, type = 'einstein', position = [0, 0, 0], playerRef, 
         if (payload.other.rigidBody === playerRef.current) {
             const now = Date.now()
             if (now - lastAttackTime.current > 1000) { // 1 second cooldown
-                decreaseHealth(10)
+                takeDamage(10)
                 lastAttackTime.current = now
 
                 // Knockback player?
