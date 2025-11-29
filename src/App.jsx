@@ -183,11 +183,12 @@ export default function App() {
             <Suspense fallback={<Html center><div className="text-white text-2xl">Loading Physics Engine...</div></Html>}>
               <Physics gravity={[0, -15, 0]} debug>
                 <GameScene />
-                <mesh position={[0, 2, 0]}>
-                  <boxGeometry args={[1, 1, 1]} />
-                  <meshStandardMaterial color="red" />
-                </mesh>
               </Physics>
+              {/* Debug Mesh OUTSIDE Physics */}
+              <mesh position={[0, 2, 0]}>
+                <boxGeometry args={[1, 1, 1]} />
+                <meshBasicMaterial color="red" />
+              </mesh>
             </Suspense>
             {/* <OrbitControls /> */}
 
